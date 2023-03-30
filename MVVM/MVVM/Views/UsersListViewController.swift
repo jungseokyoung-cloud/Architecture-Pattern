@@ -15,11 +15,12 @@ class UserListViewController: UIViewController {
     private let cellIdentifier = "UserListCell"
     private let disposBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bind()
+        navigate()
     }
     
     private func bind() {
@@ -35,6 +36,16 @@ class UserListViewController: UIViewController {
                 self?.createAlert(message: "\(message)")
             })
             .disposed(by: disposBag)
+    }
+}
+
+extension UserListViewController {
+    private func navigate() {
+        tableView.rx.itemSelected
+            .subscribe(onNext: {print("\($0)selected")})
+        
+        tableView.rx.modelSelected(UserModel.self)
+            .subscribe(onNext: {print("\($0.id)")})
     }
 }
 

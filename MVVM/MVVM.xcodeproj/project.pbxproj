@@ -19,6 +19,9 @@
 		CE65785729D1BA3F00E3FC6A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CE65785629D1BA3F00E3FC6A /* RxCocoa */; };
 		CE65785929D1BA3F00E3FC6A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE65785829D1BA3F00E3FC6A /* RxSwift */; };
 		CEE7DFB129D4834900693F08 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7DFB029D4834900693F08 /* UsersListViewController.swift */; };
+		CEF4763E29D5ADD100F3DDC3 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4763D29D5ADD100F3DDC3 /* DetailUserViewController.swift */; };
+		CEF4764029D5ADDB00F3DDC3 /* DetailUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4763F29D5ADDB00F3DDC3 /* DetailUserViewModel.swift */; };
+		CEF4764229D5B02F00F3DDC3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4764129D5B02F00F3DDC3 /* ViewModelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,10 @@
 		CE65784D29D1B99400E3FC6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE65784F29D1B99400E3FC6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE7DFB029D4834900693F08 /* UsersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		CEF4763C29D5A36700F3DDC3 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CEF4763D29D5ADD100F3DDC3 /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
+		CEF4763F29D5ADDB00F3DDC3 /* DetailUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewModel.swift; sourceTree = "<group>"; };
+		CEF4764129D5B02F00F3DDC3 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,7 @@
 				CE65784A29D1B99400E3FC6A /* Assets.xcassets */,
 				CE65784C29D1B99400E3FC6A /* LaunchScreen.storyboard */,
 				CE65784F29D1B99400E3FC6A /* Info.plist */,
+				CEF4763C29D5A36700F3DDC3 /* MyPlayground.playground */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -111,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				CE3B100129D2D488003DA9E6 /* UserListViewModel.swift */,
+				CEF4763F29D5ADDB00F3DDC3 /* DetailUserViewModel.swift */,
+				CEF4764129D5B02F00F3DDC3 /* ViewModelType.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE7DFB029D4834900693F08 /* UsersListViewController.swift */,
+				CEF4763D29D5ADD100F3DDC3 /* DetailUserViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,10 +214,13 @@
 			files = (
 				CE3B100629D2D6A9003DA9E6 /* WebService.swift in Sources */,
 				CE3B100829D2D77B003DA9E6 /* UserFetch.swift in Sources */,
+				CEF4763E29D5ADD100F3DDC3 /* DetailUserViewController.swift in Sources */,
 				CE65784229D1B99300E3FC6A /* AppDelegate.swift in Sources */,
+				CEF4764029D5ADDB00F3DDC3 /* DetailUserViewModel.swift in Sources */,
 				CE3B0FFE29D2D33E003DA9E6 /* UserModel.swift in Sources */,
 				CEE7DFB129D4834900693F08 /* UsersListViewController.swift in Sources */,
 				CE65784429D1B99300E3FC6A /* SceneDelegate.swift in Sources */,
+				CEF4764229D5B02F00F3DDC3 /* ViewModelType.swift in Sources */,
 				CE3B100229D2D488003DA9E6 /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,7 +19,6 @@ class UserFectch: UserFetchableType {
             .map { data in
                 guard let result = try? JSONDecoder().decode([UserModel].self, from: data) else {
                     fatalError("\(NetWorkError.fetchError)")  }
-                print(result)
                 return result
             }
     }

@@ -9,19 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol UserListViewModelType {
-    associatedtype Dependency
-    associatedtype Output
-    
-    var dependency: Dependency { get }
-    var disposeBag: DisposeBag { get set }
-    
-    var output: Output { get }
-    
-    init(dependency: Dependency)
-}
-
-final class UserListViewModel: UserListViewModelType {
+final class UserListViewModel: ViewModelType {
     
     typealias Dependency = UserFetchableType
     
