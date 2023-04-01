@@ -74,7 +74,5 @@ final class DetailUserViewModel: DetailUserViewModelInput, DetailUserViewModelOu
         else {
             stream.onNext(seletecUser)
         }
-        
     }
 }
-

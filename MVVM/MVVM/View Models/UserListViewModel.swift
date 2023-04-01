@@ -15,7 +15,6 @@ protocol UserListViewModelInput {
 
 protocol UserListViewModelOutput {
     var users: Driver<[UserModel]> { get set }
-    
     var errorMessage: Driver<Error> { get set }
 }
 

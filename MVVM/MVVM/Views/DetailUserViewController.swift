@@ -24,6 +24,7 @@ final class DetailUserViewController: UIViewController {
     init(viewModel: DetailUserViewModel = DetailUserViewModel()) {
         self.detaileUserViewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        bindInput()
     }
     
     required init?(coder: NSCoder) {
@@ -43,11 +44,11 @@ extension DetailUserViewController {
     
     private func bindInput() {
         self.rx.viewDidLoad
-            .subscribe(onNext: { [weak self] in
+            .bind(onNext: { [weak self] in
                 self?.bindOutput()
                 self?.detaileUserViewModel.viewDidLoad()
-
             })
+            
         .disposed(by: disposBag)
             
     }

@@ -12,7 +12,7 @@ protocol UserFetchableType {
     func fetchUser() -> Observable<[UserModel]>
 }
 
-class UserFectch: UserFetchableType {
+final class UserFectch: UserFetchableType {
     
     func fetchUser() -> Observable<[UserModel]> {
         return WebService.weatherDataToRx()

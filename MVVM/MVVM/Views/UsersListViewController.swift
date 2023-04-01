@@ -10,9 +10,10 @@ import RxCocoa
 import RxSwift
 
 final class UserListViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
     private var userListViewModel: UserListViewModelType
     private var disposBag = DisposeBag()
-    @IBOutlet weak var tableView: UITableView!
     
     init(userListViewModel: UserListViewModelType = UserListViewModel()) {
         self.userListViewModel = userListViewModel
@@ -25,7 +26,6 @@ final class UserListViewController: UIViewController {
         super.init(coder: coder)
         bind()
     }
-    
 }
 
 extension UserListViewController {
@@ -36,7 +36,7 @@ extension UserListViewController {
     
     private func bindInputs() {
         self.rx.viewDidLoad
-            .subscribe(onNext: { [weak self] in
+            .bind(onNext: { [weak self] in
                 self?.userListViewModel.input.viewDidLoad()
                 self?.setUpTableView()
             })
@@ -55,7 +55,7 @@ extension UserListViewController {
 extension UserListViewController {
     
     private func setUpTableView() {
-        userListViewModel.output.users.drive(tableView.rx.items(cellIdentifier: Constants.UserListCellIdentifier)) { [weak self] index, item, cell in
+        userListViewModel.output.users.drive(tableView.rx.items(cellIdentifier: Constants.Identifier.userListCell)) { [weak self] index, item, cell in
             
             cell.contentConfiguration = self?.contentForCell(cell, item: item)
         }
@@ -71,7 +71,7 @@ extension UserListViewController {
     private func navigateViewControllerForModel(_ model: UserModel) {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: Constants.DetailUserVCIdentifier) as? DetailUserViewController else { return }
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: Constants.Identifier.detailUserVC) as? DetailUserViewController else { return }
         
         vc.detaileUserViewModel = DetailUserViewModel(seletecUser: model)
         vc.modalPresentationStyle = .fullScreen

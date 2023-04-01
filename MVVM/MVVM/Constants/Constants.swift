@@ -7,7 +7,13 @@
 
 import Foundation
 
-class Constants {
-    static let DetailUserVCIdentifier = "DetailUserViewController"
-    static let UserListCellIdentifier = "UserListCell"
+
+struct Constants {
+    
+    static let urlString = "https://jsonplaceholder.typicode.com/users"
+    
+    struct Identifier {
+        static let detailUserVC = "DetailUserViewController"
+        static let userListCell = "UserListCell"
+    }
 }

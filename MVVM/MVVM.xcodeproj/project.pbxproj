@@ -96,7 +96,6 @@
 			children = (
 				FE126CED29D81AC9006585CB /* Extension */,
 				FE126CEA29D8125C006585CB /* Constants */,
-				FE126CE229D6D136006585CB /* Utils */,
 				CE3B100329D2D66C003DA9E6 /* Repository */,
 				CE3B100429D2D67C003DA9E6 /* Domain */,
 				CE65785A29D1BB8800E3FC6A /* Model */,
@@ -138,14 +137,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FE126CE229D6D136006585CB /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				FE126CE329D6D14E006585CB /* RxViewController.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		FE126CEA29D8125C006585CB /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FE126CEE29D81AD4006585CB /* UIViewController+.swift */,
+				FE126CE329D6D14E006585CB /* RxViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
