@@ -9,37 +9,56 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class UserListViewModel: ViewModelType {
+protocol UserListViewModelInput {
+    func viewDidLoad() -> Void
+}
+
+protocol UserListViewModelOutput {
+    var users: Driver<[UserModel]> { get set }
     
-    typealias Dependency = UserFetchableType
+    var errorMessage: Driver<Error> { get set }
+}
+
+protocol UserListViewModelType {
     
-    struct Output {
-        var users: Driver<[UserModel]>
-        
-        var errorMessage: Observable<Error>
-    }
+    var dependency: UserFetchableType { get }
+    var disposeBag: DisposeBag { get set }
     
-    let dependency: Dependency
+    var input: UserListViewModelInput { get }
+    var output: UserListViewModelOutput { get }
+    
+    init(dependency: UserFetchableType)
+}
+
+final class UserListViewModel: UserListViewModelInput, UserListViewModelOutput ,UserListViewModelType {
+   
+    var users: Driver<[UserModel]>
+    
+    var errorMessage: Driver<Error>
+    
+    let dependency: UserFetchableType
     var disposeBag: DisposeBag = DisposeBag()
     
-    let output: Output
+    var input: UserListViewModelInput { return self }
+    var output: UserListViewModelOutput { return self }
     
-    init(dependency: Dependency = UserFectch()) {
+    private let users$ = PublishSubject<[UserModel]>()
+    private let errorMessage$ = PublishSubject<Error>()
+    
+    init(dependency: UserFetchableType = UserFectch()) {
         self.dependency = dependency
-        //streams
-        let fetchUsers = PublishSubject<[UserModel]>()
-        let errorMessage = PublishSubject<Error>()
         
-        dependency.fetchUser()
-
-            .do(onError: { errorMessage.onNext($0) })
-            .subscribe(onNext: { fetchUsers.onNext($0) })
-            .disposed(by: disposeBag)
-                
-                
-        //Input & Output
-        let users = fetchUsers.asDriver(onErrorJustReturn: [UserModel]())
-        self.output = Output(users: users, errorMessage: errorMessage.asObservable())
-                
+        //streams
+        users = users$.asDriver(onErrorJustReturn: [UserModel]())
+        errorMessage = errorMessage$.asDriver(onErrorJustReturn:  NetWorkError.unknownError)
      }
+    
+    func viewDidLoad() {
+        dependency.fetchUser()
+            .subscribe(
+                onNext: { [weak self] in self?.users$.onNext($0) },
+                onError: { [weak self] in self?.errorMessage$.onNext($0) }
+            )
+            .disposed(by: disposeBag)
+    }
 }

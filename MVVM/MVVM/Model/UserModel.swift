@@ -12,8 +12,22 @@ struct UserModel: Decodable {
     let name: String
     let username: String
     let email: String
-//    let adrress: Address
-//    let company: Company
+    let address: Address
+    
+    let phone: String
+    let website: String
+}
+
+extension UserModel {
+    init() {
+        id = 1
+        name = ""
+        username = ""
+        email = ""
+        address = Address()
+        phone = ""
+        website = ""
+    }
 }
 
 struct Address: Decodable {
@@ -23,8 +37,17 @@ struct Address: Decodable {
     let zipcode: String
 }
 
-struct Company: Decodable {
-    let name: String
-    let catchPhrase: String
-    let bs: String
+extension Address {
+    init() {
+        street = ""
+        suite = ""
+        city = ""
+        zipcode = ""
+    }
+}
+
+extension UserModel {
+    func isDummy() -> Bool {
+        return username.isEmpty
+    }
 }

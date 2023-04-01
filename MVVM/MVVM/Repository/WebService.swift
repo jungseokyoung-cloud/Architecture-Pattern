@@ -13,6 +13,8 @@ enum NetWorkError: Error {
     case decodeError
     case domainError
     case fetchError
+    case unknownError
+    case unknownUserError
 }
 
 let urlString = "https://jsonplaceholder.typicode.com/users"

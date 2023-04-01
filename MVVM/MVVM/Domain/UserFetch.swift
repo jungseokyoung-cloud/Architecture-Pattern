@@ -17,8 +17,7 @@ class UserFectch: UserFetchableType {
     func fetchUser() -> Observable<[UserModel]> {
         return WebService.weatherDataToRx()
             .map { data in
-                guard let result = try? JSONDecoder().decode([UserModel].self, from: data) else {
-                    fatalError("\(NetWorkError.fetchError)")  }
+                guard let result = try? JSONDecoder().decode([UserModel].self, from: data) else { throw NetWorkError.decodeError }
                 return result
             }
     }

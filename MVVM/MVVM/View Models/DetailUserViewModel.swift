@@ -9,53 +9,72 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class DetailUserViewModel: ViewModelType {
-    typealias Dependency = UserModel
+protocol DetailUserViewModelInput {
+    func viewDidLoad() -> Void
+}
+
+protocol DetailUserViewModelOutput {
+    var username: Driver<String> { get set }
+    var email: Driver<String> { get set }
+    var address: Driver<String> { get set }
+    var phoneNumber: Driver<String> { get set }
+    var website: Driver<String> { get set }
     
-    struct Output {
-        var username: Driver<String>
-        var email: Driver<String>
-        var address: Driver<String>
-        var phoneNumber: Driver<String>
-        var website: Driver<String>
-    }
+    var errorMessage: Driver<Error> { get set }
+}
+
+protocol DetailUserViewModelType {
     
-    let dependency: Dependency
+    var seletecUser: UserModel { get }
+    var disposeBag: DisposeBag { get set }
+    
+    var input: DetailUserViewModelInput { get }
+    var output: DetailUserViewModelOutput { get }
+    
+    init(seletecUser: UserModel)
+}
+
+
+final class DetailUserViewModel: DetailUserViewModelInput, DetailUserViewModelOutput, DetailUserViewModelType {
+    
+    var username: Driver<String>
+    var email: Driver<String>
+    var address: Driver<String>
+    var phoneNumber: Driver<String>
+    var website: Driver<String>
+    var errorMessage: Driver<Error>
+    
+    let seletecUser: UserModel
+    
     var disposeBag: DisposeBag = DisposeBag()
     
-    let output: Output
+    var input: DetailUserViewModelInput { return self }
+    var output: DetailUserViewModelOutput { return self }
     
-    private let username$: PublishSubject<String>
-    private let email$: PublishSubject<String>
-    private let address$: PublishSubject<String>
-    private let phoneNumber$: PublishSubject<String>
-    private let website$: PublishSubject<String>
+    private let stream = PublishSubject<UserModel>()
+    private let errorMessage$ = PublishSubject<Error>()
     
-    
-    init(dependency: UserModel) {
-        self.dependency = dependency
+    init(seletecUser: UserModel = UserModel()) {
+        self.seletecUser = seletecUser
         
-        //Stream ??? Observable Stream
-        username$ = PublishSubject<String>()
-        email$ = PublishSubject<String>()
-        address$ = PublishSubject<String>()
-        phoneNumber$ = PublishSubject<String>()
-        website$ = PublishSubject<String>()
+        username = stream.map { $0.username }.asDriver(onErrorJustReturn: "")
+        email = stream.map { $0.email }.asDriver(onErrorJustReturn: "")
+        address = stream.map { $0.address.city }.asDriver(onErrorJustReturn: "")
+        phoneNumber = stream.map { $0.phone }.asDriver(onErrorJustReturn: "")
+        website = stream.map { $0.website }.asDriver(onErrorJustReturn: "")
         
-        var username = username$.asDriver(onErrorJustReturn: "")
-        var email = email$.asDriver(onErrorJustReturn: "")
-        var address = address$.asDriver(onErrorJustReturn: "")
-        var phoneNumber = phoneNumber$.asDriver(onErrorJustReturn: "")
-        var website = website$.asDriver(onErrorJustReturn: "")
-        
-        self.output = Output(username: username, email: email, address: address, phoneNumber: phoneNumber, website: website)
+        errorMessage = errorMessage$.asDriver(onErrorJustReturn: NetWorkError.unknownError)
     }
-    private func emitData() {
-        username$.onNext(dependency.username)
+    
+    func viewDidLoad() {
         
-        email$.onNext(dependency.email)
-        address$.onNext(dependency.email)
-        phoneNumber$.onNext(dependency.email)
-        website$.onNext(dependency.email)
+        if(seletecUser.isDummy()) {
+            errorMessage$.onNext(NetWorkError.unknownUserError)
+        }
+        else {
+            stream.onNext(seletecUser)
+        }
+        
     }
 }
+
