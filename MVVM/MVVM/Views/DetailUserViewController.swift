@@ -17,43 +17,41 @@ final class DetailUserViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
 
-    
     var detaileUserViewModel: DetailUserViewModel
     private var disposBag = DisposeBag()
     
-    init(viewModel: DetailUserViewModel = DetailUserViewModel()) {
+    init?(viewModel: DetailUserViewModel = DetailUserViewModel(), coder: NSCoder) {
         self.detaileUserViewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-        bindInput()
+        
+        super.init(coder: coder)
+        viewWillAppearBind()
     }
-    
+
     required init?(coder: NSCoder) {
         self.detaileUserViewModel = DetailUserViewModel()
         super.init(coder: coder)
-        bindInput()
+        viewWillAppearBind()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(detaileUserViewModel.seletecUser.username)
-
+        bind()
     }
 }
 
 extension DetailUserViewController {
     
-    private func bindInput() {
-        self.rx.viewDidLoad
-            .bind(onNext: { [weak self] in
-                self?.bindOutput()
-                self?.detaileUserViewModel.viewDidLoad()
+    private func viewWillAppearBind() {
+        
+        self.rx.viewWillAppear
+            .subscribe(onNext: { [weak self] _ in
+                self?.detaileUserViewModel.input.viewWillAppear()
             })
-            
-        .disposed(by: disposBag)
-            
+            .disposed(by: disposBag)
     }
+
     
-    private func bindOutput() {
+    private func bind() {
         detaileUserViewModel.output.username
             .drive(usernameLabel.rx.text)
             .disposed(by: disposBag)
@@ -80,5 +78,3 @@ extension DetailUserViewController {
             .disposed(by: disposBag)
     }
 }
-// Hot Observable이여서
-// Cold로 바꾸는 것이 좋은가............

@@ -18,45 +18,35 @@ final class UserListViewController: UIViewController {
     init(userListViewModel: UserListViewModelType = UserListViewModel()) {
         self.userListViewModel = userListViewModel
         super.init(nibName: nil, bundle: nil)
-        bind()
+        viewWillAppearBind()
     }
     
     required init?(coder: NSCoder) {
         self.userListViewModel = UserListViewModel()
         super.init(coder: coder)
+        viewWillAppearBind()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         bind()
     }
 }
 
 extension UserListViewController {
-    private func bind() {
-        bindInputs()
-        bindOutputs()
-    }
     
-    private func bindInputs() {
-        self.rx.viewDidLoad
-            .bind(onNext: { [weak self] in
-                self?.userListViewModel.input.viewDidLoad()
-                self?.setUpTableView()
+    private func viewWillAppearBind() {
+        
+        self.rx.viewWillAppear
+            .subscribe(onNext: { [weak self] _ in
+                self?.userListViewModel.input.viewWillAppear()
             })
             .disposed(by: disposBag)
     }
     
-    private func bindOutputs() {
-        
-        userListViewModel.output.errorMessage
-            .map{ "\($0)" }
-            .drive(onNext: (createAlert))
-            .disposed(by: disposBag)
-    }
-}
+    private func bind() {
 
-extension UserListViewController {
-    
-    private func setUpTableView() {
         userListViewModel.output.users.drive(tableView.rx.items(cellIdentifier: Constants.Identifier.userListCell)) { [weak self] index, item, cell in
-            
             cell.contentConfiguration = self?.contentForCell(cell, item: item)
         }
         .disposed(by: disposBag)
@@ -66,14 +56,26 @@ extension UserListViewController {
                 self?.navigateViewControllerForModel(model)
             })
             .disposed(by: disposBag)
+        
+        userListViewModel.output.errorMessage
+            .map{ "\($0)" }
+            .drive(onNext: (createAlert))
+            .disposed(by: disposBag)
+        
     }
+}
+
+extension UserListViewController {
     
     private func navigateViewControllerForModel(_ model: UserModel) {
         let storyBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: Constants.Identifier.detailUserVC) as? DetailUserViewController else { return }
-        
-        vc.detaileUserViewModel = DetailUserViewModel(seletecUser: model)
+        let vc = storyBoard.instantiateViewController(identifier: Constants.Identifier.detailUserVC, creator: { coder in
+            let viewModel = DetailUserViewModel(seletecUser: model)
+            let vc = DetailUserViewController(viewModel: viewModel, coder: coder)
+            return vc
+        }) 
+                
         vc.modalPresentationStyle = .fullScreen
 
         navigationController?.pushViewController(vc, animated: true)

@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol UserListViewModelInput {
-    func viewDidLoad() -> Void
+    func viewWillAppear() -> Void
 }
 
 protocol UserListViewModelOutput {
@@ -41,23 +41,21 @@ final class UserListViewModel: UserListViewModelInput, UserListViewModelOutput ,
     var input: UserListViewModelInput { return self }
     var output: UserListViewModelOutput { return self }
     
-    private let users$ = PublishSubject<[UserModel]>()
+    private let users$ = BehaviorSubject<[UserModel]>(value: [UserModel]())
     private let errorMessage$ = PublishSubject<Error>()
     
     init(dependency: UserFetchableType = UserFectch()) {
         self.dependency = dependency
+        //stream
         
-        //streams
         users = users$.asDriver(onErrorJustReturn: [UserModel]())
         errorMessage = errorMessage$.asDriver(onErrorJustReturn:  NetWorkError.unknownError)
      }
     
-    func viewDidLoad() {
+    func viewWillAppear() {
         dependency.fetchUser()
-            .subscribe(
-                onNext: { [weak self] in self?.users$.onNext($0) },
-                onError: { [weak self] in self?.errorMessage$.onNext($0) }
-            )
+            .do(onError: errorMessage$.onNext)
+            .subscribe(onNext : users$.onNext)
             .disposed(by: disposeBag)
     }
 }

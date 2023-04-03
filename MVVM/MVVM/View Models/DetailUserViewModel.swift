@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol DetailUserViewModelInput {
-    func viewDidLoad() -> Void
+    func viewWillAppear() -> Void
 }
 
 protocol DetailUserViewModelOutput {
@@ -51,7 +51,7 @@ final class DetailUserViewModel: DetailUserViewModelInput, DetailUserViewModelOu
     var input: DetailUserViewModelInput { return self }
     var output: DetailUserViewModelOutput { return self }
     
-    private let stream = PublishSubject<UserModel>()
+    private let stream = BehaviorSubject<UserModel>(value: UserModel())
     private let errorMessage$ = PublishSubject<Error>()
     
     init(seletecUser: UserModel = UserModel()) {
@@ -66,7 +66,7 @@ final class DetailUserViewModel: DetailUserViewModelInput, DetailUserViewModelOu
         errorMessage = errorMessage$.asDriver(onErrorJustReturn: NetWorkError.unknownError)
     }
     
-    func viewDidLoad() {
+    func viewWillAppear() {
         
         if(seletecUser.isDummy()) {
             errorMessage$.onNext(NetWorkError.unknownUserError)
