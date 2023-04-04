@@ -16,30 +16,27 @@ enum NetWorkError: Error {
     case unknownUserError
 }
 
-
 final class WebService {
-    
-    static func weatherDataToRx() -> Observable<Data> {
-        
-        return Observable.create { emitter in
+    static func weatherDataToRx() -> Single<Data> {
+        return Single.create { emitter in
             
             guard let url = URL(string: Constants.urlString) else {
-                emitter.onError(NetWorkError.urlError)
+                emitter(.failure(NetWorkError.urlError))
                 return Disposables.create()
             }
             
-            let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                if let error = error {
-                    emitter.onError(error)
+            let task = URLSession.shared.dataTask(with: url) { data, _, err in
+                if let err = err {
+                    emitter(.failure(err))
                     return
                 }
                 
                 guard let data = data else {
-                    emitter.onError(NetWorkError.fetchError)
+                    emitter(.failure(NetWorkError.fetchError))
                     return
                 }
-                emitter.onNext(data)
-                emitter.onCompleted()
+                
+                emitter(.success(data))
             }
             task.resume()
             

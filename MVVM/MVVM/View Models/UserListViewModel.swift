@@ -55,7 +55,7 @@ final class UserListViewModel: UserListViewModelInput, UserListViewModelOutput ,
     func viewWillAppear() {
         dependency.fetchUser()
             .do(onError: errorMessage$.onNext)
-            .subscribe(onNext : users$.onNext)
+            .subscribe(onSuccess: users$.onNext)
             .disposed(by: disposeBag)
     }
 }

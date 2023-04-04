@@ -44,6 +44,7 @@
 		FE126CE329D6D14E006585CB /* RxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
 		FE126CEB29D81265006585CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE126CEE29D81AD4006585CB /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		FEE520BA29DBE442008BEB33 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 				CE65784A29D1B99400E3FC6A /* Assets.xcassets */,
 				CE65784C29D1B99400E3FC6A /* LaunchScreen.storyboard */,
 				CE65784F29D1B99400E3FC6A /* Info.plist */,
+				FEE520BA29DBE442008BEB33 /* MyPlayground.playground */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
