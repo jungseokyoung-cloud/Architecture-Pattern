@@ -9,23 +9,57 @@
 /* Begin PBXBuildFile section */
 		FEFCAA7A2C00AEE700ED783D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA792C00AEE700ED783D /* AppDelegate.swift */; };
 		FEFCAA7C2C00AEE700ED783D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA7B2C00AEE700ED783D /* SceneDelegate.swift */; };
-		FEFCAA7E2C00AEE700ED783D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA7D2C00AEE700ED783D /* ViewController.swift */; };
-		FEFCAA812C00AEE700ED783D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFCAA7F2C00AEE700ED783D /* Main.storyboard */; };
 		FEFCAA832C00AEE900ED783D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEFCAA822C00AEE900ED783D /* Assets.xcassets */; };
 		FEFCAA862C00AEE900ED783D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEFCAA842C00AEE900ED783D /* LaunchScreen.storyboard */; };
 		FEFCAA8F2C00AFB600ED783D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA8E2C00AFB600ED783D /* Coordinator.swift */; };
+		FEFCAA972C020C4A00ED783D /* Containable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA962C020C4A00ED783D /* Containable.swift */; };
+		FEFCAA9C2C020CAE00ED783D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA9B2C020CAE00ED783D /* HomeCoordinator.swift */; };
+		FEFCAA9E2C020D0F00ED783D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAA9D2C020D0F00ED783D /* HomeViewModel.swift */; };
+		FEFCAAA12C020D5400ED783D /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAA02C020D5400ED783D /* RxBlocking */; };
+		FEFCAAA32C020D5400ED783D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAA22C020D5400ED783D /* RxCocoa */; };
+		FEFCAAA52C020D5400ED783D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAA42C020D5400ED783D /* RxRelay */; };
+		FEFCAAA72C020D5400ED783D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAA62C020D5400ED783D /* RxSwift */; };
+		FEFCAAA92C020D5400ED783D /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAA82C020D5400ED783D /* RxSwift-Dynamic */; };
+		FEFCAAAC2C020D5C00ED783D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FEFCAAAB2C020D5C00ED783D /* SnapKit */; };
+		FEFCAAAE2C020DC900ED783D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAAD2C020DC900ED783D /* HomeViewController.swift */; };
+		FEFCAAB12C020F5400ED783D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAB02C020F5400ED783D /* AppCoordinator.swift */; };
+		FEFCAAB32C020F5800ED783D /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAB22C020F5800ED783D /* AppViewModel.swift */; };
+		FEFCAAB52C0227BA00ED783D /* HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAB42C0227BA00ED783D /* HomeContainer.swift */; };
+		FEFCAAB82C0228A700ED783D /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAB72C0228A700ED783D /* AppContainer.swift */; };
+		FEFCAABC2C02385900ED783D /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAABB2C02385900ED783D /* PostRepository.swift */; };
+		FEFCAABF2C023ACC00ED783D /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAABE2C023ACC00ED783D /* Entity.swift */; };
+		FEFCAAC12C023D9300ED783D /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAC02C023D9300ED783D /* HomeUseCase.swift */; };
+		FEFCAAC42C02491D00ED783D /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAC32C02491D00ED783D /* PostViewController.swift */; };
+		FEFCAAC62C02492400ED783D /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAC52C02492400ED783D /* PostViewModel.swift */; };
+		FEFCAAC82C02492D00ED783D /* PostContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAC72C02492D00ED783D /* PostContainer.swift */; };
+		FEFCAACA2C02495700ED783D /* PostCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAAC92C02495700ED783D /* PostCoordinator.swift */; };
+		FEFCAACC2C024A4800ED783D /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFCAACB2C024A4800ED783D /* PostUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FEFCAA762C00AEE700ED783D /* CoordinatorPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFCAA792C00AEE700ED783D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEFCAA7B2C00AEE700ED783D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FEFCAA7D2C00AEE700ED783D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FEFCAA802C00AEE700ED783D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEFCAA822C00AEE900ED783D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEFCAA852C00AEE900ED783D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEFCAA872C00AEE900ED783D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEFCAA8E2C00AFB600ED783D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FEFCAA962C020C4A00ED783D /* Containable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containable.swift; sourceTree = "<group>"; };
+		FEFCAA9B2C020CAE00ED783D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		FEFCAA9D2C020D0F00ED783D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FEFCAAAD2C020DC900ED783D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FEFCAAB02C020F5400ED783D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FEFCAAB22C020F5800ED783D /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		FEFCAAB42C0227BA00ED783D /* HomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainer.swift; sourceTree = "<group>"; };
+		FEFCAAB72C0228A700ED783D /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		FEFCAABB2C02385900ED783D /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		FEFCAABE2C023ACC00ED783D /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		FEFCAAC02C023D9300ED783D /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		FEFCAAC32C02491D00ED783D /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		FEFCAAC52C02492400ED783D /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		FEFCAAC72C02492D00ED783D /* PostContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContainer.swift; sourceTree = "<group>"; };
+		FEFCAAC92C02495700ED783D /* PostCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCoordinator.swift; sourceTree = "<group>"; };
+		FEFCAACB2C024A4800ED783D /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +67,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEFCAAA52C020D5400ED783D /* RxRelay in Frameworks */,
+				FEFCAAA92C020D5400ED783D /* RxSwift-Dynamic in Frameworks */,
+				FEFCAAA32C020D5400ED783D /* RxCocoa in Frameworks */,
+				FEFCAAAC2C020D5C00ED783D /* SnapKit in Frameworks */,
+				FEFCAAA72C020D5400ED783D /* RxSwift in Frameworks */,
+				FEFCAAA12C020D5400ED783D /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,11 +98,12 @@
 		FEFCAA782C00AEE700ED783D /* CoordinatorPattern */ = {
 			isa = PBXGroup;
 			children = (
+				FEFCAACD2C035B5100ED783D /* Presentation */,
+				FEFCAABD2C023AC700ED783D /* Entity */,
+				FEFCAABA2C02384E00ED783D /* Repository */,
+				FEFCAAB92C02384800ED783D /* UseCase */,
+				FEFCAAAF2C020F3300ED783D /* AppLifeCycle */,
 				FEFCAA8D2C00AFAD00ED783D /* BaseCoordinator */,
-				FEFCAA792C00AEE700ED783D /* AppDelegate.swift */,
-				FEFCAA7B2C00AEE700ED783D /* SceneDelegate.swift */,
-				FEFCAA7D2C00AEE700ED783D /* ViewController.swift */,
-				FEFCAA7F2C00AEE700ED783D /* Main.storyboard */,
 				FEFCAA822C00AEE900ED783D /* Assets.xcassets */,
 				FEFCAA842C00AEE900ED783D /* LaunchScreen.storyboard */,
 				FEFCAA872C00AEE900ED783D /* Info.plist */,
@@ -74,8 +115,85 @@
 			isa = PBXGroup;
 			children = (
 				FEFCAA8E2C00AFB600ED783D /* Coordinator.swift */,
+				FEFCAA962C020C4A00ED783D /* Containable.swift */,
 			);
 			path = BaseCoordinator;
+			sourceTree = "<group>";
+		};
+		FEFCAA982C020C8C00ED783D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAA9B2C020CAE00ED783D /* HomeCoordinator.swift */,
+				FEFCAAAD2C020DC900ED783D /* HomeViewController.swift */,
+				FEFCAA9D2C020D0F00ED783D /* HomeViewModel.swift */,
+				FEFCAAB42C0227BA00ED783D /* HomeContainer.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FEFCAA9A2C020CA100ED783D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAAB02C020F5400ED783D /* AppCoordinator.swift */,
+				FEFCAAB22C020F5800ED783D /* AppViewModel.swift */,
+				FEFCAAB72C0228A700ED783D /* AppContainer.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FEFCAAAF2C020F3300ED783D /* AppLifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAA792C00AEE700ED783D /* AppDelegate.swift */,
+				FEFCAA7B2C00AEE700ED783D /* SceneDelegate.swift */,
+			);
+			path = AppLifeCycle;
+			sourceTree = "<group>";
+		};
+		FEFCAAB92C02384800ED783D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAAC02C023D9300ED783D /* HomeUseCase.swift */,
+				FEFCAACB2C024A4800ED783D /* PostUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		FEFCAABA2C02384E00ED783D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAABB2C02385900ED783D /* PostRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FEFCAABD2C023AC700ED783D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAABE2C023ACC00ED783D /* Entity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FEFCAAC22C02490300ED783D /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAAC32C02491D00ED783D /* PostViewController.swift */,
+				FEFCAAC92C02495700ED783D /* PostCoordinator.swift */,
+				FEFCAAC72C02492D00ED783D /* PostContainer.swift */,
+				FEFCAAC52C02492400ED783D /* PostViewModel.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		FEFCAACD2C035B5100ED783D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCAAC22C02490300ED783D /* Post */,
+				FEFCAA9A2C020CA100ED783D /* App */,
+				FEFCAA982C020C8C00ED783D /* Home */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +212,14 @@
 			dependencies = (
 			);
 			name = CoordinatorPattern;
+			packageProductDependencies = (
+				FEFCAAA02C020D5400ED783D /* RxBlocking */,
+				FEFCAAA22C020D5400ED783D /* RxCocoa */,
+				FEFCAAA42C020D5400ED783D /* RxRelay */,
+				FEFCAAA62C020D5400ED783D /* RxSwift */,
+				FEFCAAA82C020D5400ED783D /* RxSwift-Dynamic */,
+				FEFCAAAB2C020D5C00ED783D /* SnapKit */,
+			);
 			productName = CoordinatorPattern;
 			productReference = FEFCAA762C00AEE700ED783D /* CoordinatorPattern.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +248,10 @@
 				Base,
 			);
 			mainGroup = FEFCAA6D2C00AEE700ED783D;
+			packageReferences = (
+				FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */,
+				FEFCAAAA2C020D5C00ED783D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FEFCAA772C00AEE700ED783D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +268,6 @@
 			files = (
 				FEFCAA862C00AEE900ED783D /* LaunchScreen.storyboard in Resources */,
 				FEFCAA832C00AEE900ED783D /* Assets.xcassets in Resources */,
-				FEFCAA812C00AEE700ED783D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,24 +278,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEFCAAB32C020F5800ED783D /* AppViewModel.swift in Sources */,
+				FEFCAABC2C02385900ED783D /* PostRepository.swift in Sources */,
+				FEFCAAC82C02492D00ED783D /* PostContainer.swift in Sources */,
 				FEFCAA8F2C00AFB600ED783D /* Coordinator.swift in Sources */,
-				FEFCAA7E2C00AEE700ED783D /* ViewController.swift in Sources */,
+				FEFCAA972C020C4A00ED783D /* Containable.swift in Sources */,
+				FEFCAA9E2C020D0F00ED783D /* HomeViewModel.swift in Sources */,
+				FEFCAAAE2C020DC900ED783D /* HomeViewController.swift in Sources */,
 				FEFCAA7A2C00AEE700ED783D /* AppDelegate.swift in Sources */,
+				FEFCAAB12C020F5400ED783D /* AppCoordinator.swift in Sources */,
+				FEFCAAC12C023D9300ED783D /* HomeUseCase.swift in Sources */,
+				FEFCAACC2C024A4800ED783D /* PostUseCase.swift in Sources */,
+				FEFCAAC62C02492400ED783D /* PostViewModel.swift in Sources */,
+				FEFCAAB52C0227BA00ED783D /* HomeContainer.swift in Sources */,
 				FEFCAA7C2C00AEE700ED783D /* SceneDelegate.swift in Sources */,
+				FEFCAABF2C023ACC00ED783D /* Entity.swift in Sources */,
+				FEFCAA9C2C020CAE00ED783D /* HomeCoordinator.swift in Sources */,
+				FEFCAAB82C0228A700ED783D /* AppContainer.swift in Sources */,
+				FEFCAAC42C02491D00ED783D /* PostViewController.swift in Sources */,
+				FEFCAACA2C02495700ED783D /* PostCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FEFCAA7F2C00AEE700ED783D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEFCAA802C00AEE700ED783D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FEFCAA842C00AEE900ED783D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -309,7 +445,6 @@
 				INFOPLIST_FILE = CoordinatorPattern/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -337,7 +472,6 @@
 				INFOPLIST_FILE = CoordinatorPattern/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -375,6 +509,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+		FEFCAAAA2C020D5C00ED783D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FEFCAAA02C020D5400ED783D /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		FEFCAAA22C020D5400ED783D /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		FEFCAAA42C020D5400ED783D /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		FEFCAAA62C020D5400ED783D /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		FEFCAAA82C020D5400ED783D /* RxSwift-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAA9F2C020D5400ED783D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxSwift-Dynamic";
+		};
+		FEFCAAAB2C020D5C00ED783D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEFCAAAA2C020D5C00ED783D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FEFCAA6E2C00AEE700ED783D /* Project object */;
 }
